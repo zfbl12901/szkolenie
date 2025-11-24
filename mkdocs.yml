@@ -1,0 +1,465 @@
+site_name: Documentation de Formation
+site_description: Documentation complète pour les formations en technologies DevOps et Data
+site_author: Formation Tech
+site_url: https://votre-username.github.io/szkolenie/
+
+# Repository
+repo_name: szkolenie
+repo_url: https://github.com/votre-username/szkolenie
+edit_uri: edit/main/
+
+# Theme Configuration
+theme:
+  name: material
+  language: fr
+  palette:
+    # Mode clair
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Passer en mode sombre
+    # Mode sombre
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Passer en mode clair
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang: 
+        - fr
+        - en
+        - pl
+  - tags
+
+# Extensions Markdown
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
+
+# Navigation
+nav:
+  - Accueil: index.md
+  
+  - AirFlow:
+    - Français:
+      - Introduction: AirFlow/FR/README.md
+      - 1. Démarrage: AirFlow/FR/01-getting-started/README.md
+      - 2. Concepts: AirFlow/FR/02-concepts/README.md
+      - 3. Opérateurs: AirFlow/FR/03-operators/README.md
+      - 4. Sensors: AirFlow/FR/04-sensors/README.md
+      - 5. Hooks: AirFlow/FR/05-hooks/README.md
+      - 6. Variables & Connexions: AirFlow/FR/06-variables-connections/README.md
+      - 7. Bonnes Pratiques: AirFlow/FR/07-best-practices/README.md
+      - 8. Projets: AirFlow/FR/08-projets/README.md
+      - Installation Remote: AirFlow/FR/INSTALLATION_REMOTE.md
+    - English:
+      - Introduction: AirFlow/EN/README.md
+      - 1. Getting Started: AirFlow/EN/01-getting-started/README.md
+      - 2. Concepts: AirFlow/EN/02-concepts/README.md
+      - 3. Operators: AirFlow/EN/03-operators/README.md
+      - 4. Sensors: AirFlow/EN/04-sensors/README.md
+      - 5. Hooks: AirFlow/EN/05-hooks/README.md
+      - 6. Variables & Connections: AirFlow/EN/06-variables-connections/README.md
+      - 7. Best Practices: AirFlow/EN/07-best-practices/README.md
+      - 8. Projects: AirFlow/EN/08-projets/README.md
+      - Installation Remote: AirFlow/EN/INSTALLATION_REMOTE.md
+    - Polski:
+      - Wprowadzenie: AirFlow/PL/README.md
+      - 1. Rozpoczęcie: AirFlow/PL/01-getting-started/README.md
+      - 2. Koncepcje: AirFlow/PL/02-concepts/README.md
+      - 3. Operatory: AirFlow/PL/03-operators/README.md
+      - 4. Sensory: AirFlow/PL/04-sensors/README.md
+      - 5. Hooks: AirFlow/PL/05-hooks/README.md
+      - 6. Zmienne i Połączenia: AirFlow/PL/06-variables-connections/README.md
+      - 7. Najlepsze Praktyki: AirFlow/PL/07-best-practices/README.md
+      - 8. Projekty: AirFlow/PL/08-projets/README.md
+      - Instalacja Zdalna: AirFlow/PL/INSTALLATION_REMOTE.md
+
+  - Docker:
+    - Français:
+      - Introduction: Docker/FR/README.md
+      - 1. Démarrage: Docker/FR/01-getting-started/README.md
+      - 2. Conteneurs: Docker/FR/02-containers/README.md
+      - 3. Images: Docker/FR/03-images/README.md
+      - 4. Dockerfile: Docker/FR/04-dockerfile/README.md
+      - 5. Docker Compose: Docker/FR/05-docker-compose/README.md
+      - 6. Volumes & Réseaux: Docker/FR/06-volumes-networks/README.md
+      - 7. Bonnes Pratiques: Docker/FR/07-best-practices/README.md
+      - 8. Projets: Docker/FR/08-projets/README.md
+    - English:
+      - Introduction: Docker/EN/README.md
+      - 1. Getting Started: Docker/EN/01-getting-started/README.md
+      - 2. Containers: Docker/EN/02-containers/README.md
+      - 3. Images: Docker/EN/03-images/README.md
+      - 4. Dockerfile: Docker/EN/04-dockerfile/README.md
+      - 5. Docker Compose: Docker/EN/05-docker-compose/README.md
+      - 6. Volumes & Networks: Docker/EN/06-volumes-networks/README.md
+      - 7. Best Practices: Docker/EN/07-best-practices/README.md
+      - 8. Projects: Docker/EN/08-projets/README.md
+    - Polski:
+      - Wprowadzenie: Docker/PL/README.md
+      - 1. Rozpoczęcie: Docker/PL/01-getting-started/README.md
+      - 2. Kontenery: Docker/PL/02-containers/README.md
+      - 3. Obrazy: Docker/PL/03-images/README.md
+      - 4. Dockerfile: Docker/PL/04-dockerfile/README.md
+      - 5. Docker Compose: Docker/PL/05-docker-compose/README.md
+      - 6. Wolumeny i Sieci: Docker/PL/06-volumes-networks/README.md
+      - 7. Najlepsze Praktyki: Docker/PL/07-best-practices/README.md
+      - 8. Projekty: Docker/PL/08-projets/README.md
+
+  - Kubernetes:
+    - Français:
+      - Introduction: Kubernetes/FR/README.md
+      - 1. Démarrage: Kubernetes/FR/01-getting-started/README.md
+      - 2. Concepts: Kubernetes/FR/02-concepts/README.md
+      - 3. Pods & Deployments: Kubernetes/FR/03-pods-deployments/README.md
+      - 4. Services: Kubernetes/FR/04-services/README.md
+      - 5. ConfigMaps & Secrets: Kubernetes/FR/05-configmaps-secrets/README.md
+      - 6. Volumes Persistants: Kubernetes/FR/06-persistent-volumes/README.md
+      - 7. Bonnes Pratiques: Kubernetes/FR/07-best-practices/README.md
+      - 8. Projets: Kubernetes/FR/08-projets/README.md
+    - English:
+      - Introduction: Kubernetes/EN/README.md
+      - 1. Getting Started: Kubernetes/EN/01-getting-started/README.md
+      - 2. Concepts: Kubernetes/EN/02-concepts/README.md
+      - 3. Pods & Deployments: Kubernetes/EN/03-pods-deployments/README.md
+      - 4. Services: Kubernetes/EN/04-services/README.md
+      - 5. ConfigMaps & Secrets: Kubernetes/EN/05-configmaps-secrets/README.md
+      - 6. Persistent Volumes: Kubernetes/EN/06-persistent-volumes/README.md
+      - 7. Best Practices: Kubernetes/EN/07-best-practices/README.md
+      - 8. Projects: Kubernetes/EN/08-projets/README.md
+    - Polski:
+      - Wprowadzenie: Kubernetes/PL/README.md
+      - 1. Rozpoczęcie: Kubernetes/PL/01-getting-started/README.md
+      - 2. Koncepcje: Kubernetes/PL/02-concepts/README.md
+      - 3. Pody i Wdrożenia: Kubernetes/PL/03-pods-deployments/README.md
+      - 4. Usługi: Kubernetes/PL/04-services/README.md
+      - 5. ConfigMaps i Secrets: Kubernetes/PL/05-configmaps-secrets/README.md
+      - 6. Wolumeny Trwałe: Kubernetes/PL/06-persistent-volumes/README.md
+      - 7. Najlepsze Praktyki: Kubernetes/PL/07-best-practices/README.md
+      - 8. Projekty: Kubernetes/PL/08-projets/README.md
+
+  - Git:
+    - Français:
+      - Introduction: Git/FR/README.md
+      - 1. Démarrage: Git/FR/01-getting-started/README.md
+      - 2. Commandes de Base: Git/FR/02-basic-commands/README.md
+      - 3. Branches: Git/FR/03-branching/README.md
+      - 4. Dépôts Distants: Git/FR/04-remote-repositories/README.md
+      - 5. Collaboration: Git/FR/05-collaboration/README.md
+      - 6. Avancé: Git/FR/06-advanced/README.md
+      - 7. Bonnes Pratiques: Git/FR/07-best-practices/README.md
+      - 8. Projets: Git/FR/08-projets/README.md
+    - English:
+      - Introduction: Git/EN/README.md
+      - 1. Getting Started: Git/EN/01-getting-started/README.md
+      - 2. Basic Commands: Git/EN/02-basic-commands/README.md
+      - 3. Branching: Git/EN/03-branching/README.md
+      - 4. Remote Repositories: Git/EN/04-remote-repositories/README.md
+      - 5. Collaboration: Git/EN/05-collaboration/README.md
+      - 6. Advanced: Git/EN/06-advanced/README.md
+      - 7. Best Practices: Git/EN/07-best-practices/README.md
+      - 8. Projects: Git/EN/08-projets/README.md
+    - Polski:
+      - Wprowadzenie: Git/PL/README.md
+      - 1. Rozpoczęcie: Git/PL/01-getting-started/README.md
+      - 2. Podstawowe Komendy: Git/PL/02-basic-commands/README.md
+      - 3. Gałęzie: Git/PL/03-branching/README.md
+      - 4. Repozytoria Zdalne: Git/PL/04-remote-repositories/README.md
+      - 5. Współpraca: Git/PL/05-collaboration/README.md
+      - 6. Zaawansowane: Git/PL/06-advanced/README.md
+      - 7. Najlepsze Praktyki: Git/PL/07-best-practices/README.md
+      - 8. Projekty: Git/PL/08-projets/README.md
+
+  - MongoDB:
+    - Français:
+      - Introduction: MongoDB/FR/README.md
+      - 1. Démarrage: MongoDB/FR/01-getting-started/README.md
+      - 2. Opérations de Base: MongoDB/FR/02-basic-operations/README.md
+      - 3. Requêtes & Agrégation: MongoDB/FR/03-queries-aggregation/README.md
+      - 4. Index & Performance: MongoDB/FR/04-indexes-performance/README.md
+      - 5. Modélisation des Données: MongoDB/FR/05-data-modeling/README.md
+      - 6. Avancé: MongoDB/FR/06-advanced/README.md
+      - 7. Bonnes Pratiques: MongoDB/FR/07-best-practices/README.md
+      - 8. Projets: MongoDB/FR/08-projets/README.md
+    - English:
+      - Introduction: MongoDB/EN/README.md
+      - 1. Getting Started: MongoDB/EN/01-getting-started/README.md
+      - 2. Basic Operations: MongoDB/EN/02-basic-operations/README.md
+      - 3. Queries & Aggregation: MongoDB/EN/03-queries-aggregation/README.md
+      - 4. Indexes & Performance: MongoDB/EN/04-indexes-performance/README.md
+      - 5. Data Modeling: MongoDB/EN/05-data-modeling/README.md
+      - 6. Advanced: MongoDB/EN/06-advanced/README.md
+      - 7. Best Practices: MongoDB/EN/07-best-practices/README.md
+      - 8. Projects: MongoDB/EN/08-projets/README.md
+    - Polski:
+      - Wprowadzenie: MongoDB/PL/README.md
+      - 1. Rozpoczęcie: MongoDB/PL/01-getting-started/README.md
+      - 2. Podstawowe Operacje: MongoDB/PL/02-basic-operations/README.md
+      - 3. Zapytania i Agregacja: MongoDB/PL/03-queries-aggregation/README.md
+      - 4. Indeksy i Wydajność: MongoDB/PL/04-indexes-performance/README.md
+      - 5. Modelowanie Danych: MongoDB/PL/05-data-modeling/README.md
+      - 6. Zaawansowane: MongoDB/PL/06-advanced/README.md
+      - 7. Najlepsze Praktyki: MongoDB/PL/07-best-practices/README.md
+      - 8. Projekty: MongoDB/PL/08-projets/README.md
+
+  - ClickHouse:
+    - Data Engineer:
+      - Français:
+        - Introduction: Clickhouse/Data/FR/01-introduction.md
+        - Architecture: Clickhouse/Data/FR/02-architecture.md
+        - Installation: Clickhouse/Data/FR/03-installation.md
+        - Bases de Données: Clickhouse/Data/FR/04-databases-tables.md
+        - Requêtes: Clickhouse/Data/FR/05-queries.md
+        - Optimisation: Clickhouse/Data/FR/06-optimization.md
+        - Réplication: Clickhouse/Data/FR/07-replication.md
+        - Bonnes Pratiques: Clickhouse/Data/FR/08-best-practices.md
+        - Projets: Clickhouse/Data/FR/09-projects.md
+      - English:
+        - Introduction: Clickhouse/Data/EN/01-introduction.md
+        - Architecture: Clickhouse/Data/EN/02-architecture.md
+        - Installation: Clickhouse/Data/EN/03-installation.md
+        - Databases & Tables: Clickhouse/Data/EN/04-databases-tables.md
+        - Queries: Clickhouse/Data/EN/05-queries.md
+        - Optimization: Clickhouse/Data/EN/06-optimization.md
+        - Replication: Clickhouse/Data/EN/07-replication.md
+        - Best Practices: Clickhouse/Data/EN/08-best-practices.md
+        - Projects: Clickhouse/Data/EN/09-projects.md
+      - Polski:
+        - Wprowadzenie: Clickhouse/Data/PL/01-introduction.md
+        - Architektura: Clickhouse/Data/PL/02-architecture.md
+        - Instalacja: Clickhouse/Data/PL/03-installation.md
+        - Bazy Danych: Clickhouse/Data/PL/04-databases-tables.md
+        - Zapytania: Clickhouse/Data/PL/05-queries.md
+        - Optymalizacja: Clickhouse/Data/PL/06-optimization.md
+        - Replikacja: Clickhouse/Data/PL/07-replication.md
+        - Najlepsze Praktyki: Clickhouse/Data/PL/08-best-practices.md
+        - Projekty: Clickhouse/Data/PL/09-projects.md
+    - Développeur:
+      - Français:
+        - Introduction: Clickhouse/Dev/FR/01-introduction.md
+        - Client Python: Clickhouse/Dev/FR/02-python-client.md
+        - Client JavaScript: Clickhouse/Dev/FR/03-javascript-client.md
+        - API REST: Clickhouse/Dev/FR/04-rest-api.md
+        - Intégration: Clickhouse/Dev/FR/05-integration.md
+        - Performance: Clickhouse/Dev/FR/06-performance.md
+        - Tests: Clickhouse/Dev/FR/07-testing.md
+        - Bonnes Pratiques: Clickhouse/Dev/FR/08-best-practices.md
+        - Projets: Clickhouse/Dev/FR/09-projects.md
+      - English:
+        - Introduction: Clickhouse/Dev/EN/01-introduction.md
+        - Python Client: Clickhouse/Dev/EN/02-python-client.md
+        - JavaScript Client: Clickhouse/Dev/EN/03-javascript-client.md
+        - REST API: Clickhouse/Dev/EN/04-rest-api.md
+        - Integration: Clickhouse/Dev/EN/05-integration.md
+        - Performance: Clickhouse/Dev/EN/06-performance.md
+        - Testing: Clickhouse/Dev/EN/07-testing.md
+        - Best Practices: Clickhouse/Dev/EN/08-best-practices.md
+        - Projects: Clickhouse/Dev/EN/09-projects.md
+      - Polski:
+        - Wprowadzenie: Clickhouse/Dev/PL/01-introduction.md
+        - Klient Python: Clickhouse/Dev/PL/02-python-client.md
+        - Klient JavaScript: Clickhouse/Dev/PL/03-javascript-client.md
+        - API REST: Clickhouse/Dev/PL/04-rest-api.md
+        - Integracja: Clickhouse/Dev/PL/05-integration.md
+        - Wydajność: Clickhouse/Dev/PL/06-performance.md
+        - Testowanie: Clickhouse/Dev/PL/07-testing.md
+        - Najlepsze Praktyki: Clickhouse/Dev/PL/08-best-practices.md
+        - Projekty: Clickhouse/Dev/PL/09-projects.md
+
+  - Qdrant:
+    - Data Engineer:
+      - Français:
+        - Introduction: Qdrant/Data/FR/01-introduction.md
+        - Architecture: Qdrant/Data/FR/02-architecture.md
+        - Installation: Qdrant/Data/FR/03-installation.md
+        - Collections: Qdrant/Data/FR/04-collections.md
+        - Recherche: Qdrant/Data/FR/05-search.md
+        - Optimisation: Qdrant/Data/FR/06-optimization.md
+        - Clustering: Qdrant/Data/FR/07-clustering.md
+        - Bonnes Pratiques: Qdrant/Data/FR/08-best-practices.md
+        - Projets: Qdrant/Data/FR/09-projects.md
+      - English:
+        - Introduction: Qdrant/Data/EN/01-introduction.md
+        - Architecture: Qdrant/Data/EN/02-architecture.md
+        - Installation: Qdrant/Data/EN/03-installation.md
+        - Collections: Qdrant/Data/EN/04-collections.md
+        - Search: Qdrant/Data/EN/05-search.md
+        - Optimization: Qdrant/Data/EN/06-optimization.md
+        - Clustering: Qdrant/Data/EN/07-clustering.md
+        - Best Practices: Qdrant/Data/EN/08-best-practices.md
+        - Projects: Qdrant/Data/EN/09-projects.md
+      - Polski:
+        - Wprowadzenie: Qdrant/Data/PL/01-introduction.md
+        - Architektura: Qdrant/Data/PL/02-architecture.md
+        - Instalacja: Qdrant/Data/PL/03-installation.md
+        - Kolekcje: Qdrant/Data/PL/04-collections.md
+        - Wyszukiwanie: Qdrant/Data/PL/05-search.md
+        - Optymalizacja: Qdrant/Data/PL/06-optimization.md
+        - Klastrowanie: Qdrant/Data/PL/07-clustering.md
+        - Najlepsze Praktyki: Qdrant/Data/PL/08-best-practices.md
+        - Projekty: Qdrant/Data/PL/09-projects.md
+    - Développeur:
+      - Français:
+        - Introduction: Qdrant/Dev/FR/01-introduction.md
+        - Client Python: Qdrant/Dev/FR/02-python-client.md
+        - Client JavaScript: Qdrant/Dev/FR/03-javascript-client.md
+        - API REST: Qdrant/Dev/FR/04-rest-api.md
+        - Embeddings: Qdrant/Dev/FR/05-embeddings.md
+        - Intégration: Qdrant/Dev/FR/06-integration.md
+        - Tests: Qdrant/Dev/FR/07-testing.md
+        - Bonnes Pratiques: Qdrant/Dev/FR/08-best-practices.md
+        - Projets: Qdrant/Dev/FR/09-projects.md
+      - English:
+        - Introduction: Qdrant/Dev/EN/01-introduction.md
+        - Python Client: Qdrant/Dev/EN/02-python-client.md
+        - JavaScript Client: Qdrant/Dev/EN/03-javascript-client.md
+        - REST API: Qdrant/Dev/EN/04-rest-api.md
+        - Embeddings: Qdrant/Dev/EN/05-embeddings.md
+        - Integration: Qdrant/Dev/EN/06-integration.md
+        - Testing: Qdrant/Dev/EN/07-testing.md
+        - Best Practices: Qdrant/Dev/EN/08-best-practices.md
+        - Projects: Qdrant/Dev/EN/09-projects.md
+      - Polski:
+        - Wprowadzenie: Qdrant/Dev/PL/01-introduction.md
+        - Klient Python: Qdrant/Dev/PL/02-python-client.md
+        - Klient JavaScript: Qdrant/Dev/PL/03-javascript-client.md
+        - API REST: Qdrant/Dev/PL/04-rest-api.md
+        - Embeddingi: Qdrant/Dev/PL/05-embeddings.md
+        - Integracja: Qdrant/Dev/PL/06-integration.md
+        - Testowanie: Qdrant/Dev/PL/07-testing.md
+        - Najlepsze Praktyki: Qdrant/Dev/PL/08-best-practices.md
+        - Projekty: Qdrant/Dev/PL/09-projects.md
+
+  - Cloud:
+    - AWS:
+      - Français:
+        - Introduction: Cloud/AWS/FR/01-introduction.md
+        - Services Principaux: Cloud/AWS/FR/02-core-services.md
+        - Computing: Cloud/AWS/FR/03-computing.md
+        - Storage: Cloud/AWS/FR/04-storage.md
+        - Networking: Cloud/AWS/FR/05-networking.md
+        - Sécurité: Cloud/AWS/FR/06-security.md
+        - Bonnes Pratiques: Cloud/AWS/FR/07-best-practices.md
+        - Projets: Cloud/AWS/FR/08-projects.md
+      - English:
+        - Introduction: Cloud/AWS/EN/01-introduction.md
+        - Core Services: Cloud/AWS/EN/02-core-services.md
+        - Computing: Cloud/AWS/EN/03-computing.md
+        - Storage: Cloud/AWS/EN/04-storage.md
+        - Networking: Cloud/AWS/EN/05-networking.md
+        - Security: Cloud/AWS/EN/06-security.md
+        - Best Practices: Cloud/AWS/EN/07-best-practices.md
+        - Projects: Cloud/AWS/EN/08-projects.md
+      - Polski:
+        - Wprowadzenie: Cloud/AWS/PL/01-introduction.md
+        - Główne Usługi: Cloud/AWS/PL/02-core-services.md
+        - Obliczenia: Cloud/AWS/PL/03-computing.md
+        - Przechowywanie: Cloud/AWS/PL/04-storage.md
+        - Sieci: Cloud/AWS/PL/05-networking.md
+        - Bezpieczeństwo: Cloud/AWS/PL/06-security.md
+        - Najlepsze Praktyki: Cloud/AWS/PL/07-best-practices.md
+        - Projekty: Cloud/AWS/PL/08-projects.md
+    - Azure:
+      - Français:
+        - Introduction: Cloud/Azure/FR/01-introduction.md
+        - Services Principaux: Cloud/Azure/FR/02-core-services.md
+        - Computing: Cloud/Azure/FR/03-computing.md
+        - Storage: Cloud/Azure/FR/04-storage.md
+        - Networking: Cloud/Azure/FR/05-networking.md
+        - Sécurité: Cloud/Azure/FR/06-security.md
+        - Bonnes Pratiques: Cloud/Azure/FR/07-best-practices.md
+        - Projets: Cloud/Azure/FR/08-projects.md
+      - English:
+        - Introduction: Cloud/Azure/EN/01-introduction.md
+        - Core Services: Cloud/Azure/EN/02-core-services.md
+        - Computing: Cloud/Azure/EN/03-computing.md
+        - Storage: Cloud/Azure/EN/04-storage.md
+        - Networking: Cloud/Azure/EN/05-networking.md
+        - Security: Cloud/Azure/EN/06-security.md
+        - Best Practices: Cloud/Azure/EN/07-best-practices.md
+        - Projects: Cloud/Azure/EN/08-projects.md
+      - Polski:
+        - Wprowadzenie: Cloud/Azure/PL/01-introduction.md
+        - Główne Usługi: Cloud/Azure/PL/02-core-services.md
+        - Obliczenia: Cloud/Azure/PL/03-computing.md
+        - Przechowywanie: Cloud/Azure/PL/04-storage.md
+        - Sieci: Cloud/Azure/PL/05-networking.md
+        - Bezpieczeństwo: Cloud/Azure/PL/06-security.md
+        - Najlepsze Praktyki: Cloud/Azure/PL/07-best-practices.md
+        - Projekty: Cloud/Azure/PL/08-projects.md
+
+  - SQL Avancé:
+    - Français:
+      - Introduction: SQL-avancé/FR/README.md
+      - Plan de Formation: SQL-avancé/FR/PLAN_FORMATION.md
+      - 1. Fondamentaux: SQL-avancé/FR/01-fondamentaux/README.md
+      - 2. Plans d'Exécution: SQL-avancé/FR/02-plans-execution/README.md
+      - 3. Dalibo: SQL-avancé/FR/03-dalibo/README.md
+      - 4. Indicateurs: SQL-avancé/FR/04-indicateurs/README.md
+      - 5. Techniques: SQL-avancé/FR/05-techniques/README.md
+      - 6. Cas Pratiques: SQL-avancé/FR/06-cas-pratiques/README.md
+      - 7. Exercices: SQL-avancé/FR/07-exercices/README.md
+    - Polski:
+      - Wprowadzenie: SQL-avancé/PL/README.md
+      - Plan Szkolenia: SQL-avancé/PL/PLAN_FORMATION.md
+      - 1. Podstawy: SQL-avancé/PL/01-fondamentaux/README.md
+      - 2. Plany Wykonania: SQL-avancé/PL/02-plans-execution/README.md
+      - 3. Dalibo: SQL-avancé/PL/03-dalibo/README.md
+      - 4. Wskaźniki: SQL-avancé/PL/04-indicateurs/README.md
+      - 5. Techniki: SQL-avancé/PL/05-techniques/README.md
+      - 6. Przypadki Praktyczne: SQL-avancé/PL/06-cas-pratiques/README.md
+      - 7. Ćwiczenia: SQL-avancé/PL/07-exercices/README.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/votre-username
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/votre-profile
+  version:
+    provider: mike
+
+# Copyright
+copyright: Copyright &copy; 2025 Formation Tech
