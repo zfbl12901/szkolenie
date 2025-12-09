@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Plan — Advanced PostgreSQL</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.2rem;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">📘 Advanced PostgreSQL</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Course Plan</a></li>
+                    <li><a href="Module 1 - Essential Fundamentals/module1.html">Module 1</a></li>
+                    <li class="lang-selector">
+                        <a href="../FR/index.html">FR</a>
+                        <a href="index.html" class="active">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <article class="markdown-content" id="content">
+            <div class="loading">Loading content...</div>
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Advanced PostgreSQL Training — Data Analyst → Data Engineer</p>
+    </footer>
+
+    <script>
+        // Markdown content
+        const markdownContent = `# 📘 Course Plan — Advanced PostgreSQL
+**Data Analyst → Data Engineer**
+
+---
+
+# Advanced PostgreSQL Training for Data Engineers
+
+This training is designed for Data Analysts looking to advance their skills toward Data Engineering, with a focus on SQL optimization, performance, BI modeling, and data pipeline implementation.
+
+---
+
+## Module 1 — Query Optimization
+
+### 🎯 Objectives
+- Understand how PostgreSQL actually executes a query.
+- Diagnose and optimize SQL performance on large volumes.
+
+### 📚 Content
+- **EXPLAIN / EXPLAIN ANALYZE** : reading and interpreting execution plans.
+- Cost analysis, row estimates, loops, timings.
+- Join types : nested loop, hash join, merge join.
+- Scans : seq scan, index scan, bitmap scan.
+- **Advanced indexing** : multicolumn, partial, expressions, GIN/GiST/BRIN.
+- **Partitioning** and best practices.
+- **CTE** : materialized vs non-materialized.
+- **Visual analysis** with explain.dalibo.com.
+
+---
+
+## Module 2 — Performance & Scalability
+
+### 🎯 Objectives
+- Know how to configure PostgreSQL for heavy workloads.
+- Understand the impact of system parameters on performance.
+
+### 📚 Content
+- Key parameters : \`work_mem\`, \`shared_buffers\`, \`effective_cache_size\`.
+- WAL : \`max_wal_size\`, \`checkpoint_timeout\`, compression.
+- Vacuum & autovacuum in depth.
+- Parallel queries : operation and tuning.
+- Cache and buffer management.
+- Practical optimization for large datasets.
+
+---
+
+## Module 3 — Modeling & Data Engineering
+
+### 🎯 Objectives
+- Structure data for analytics, scalability, and data pipelines.
+
+### 📚 Content
+- BI modeling : **Star Schema / Snowflake**.
+- Normalization / denormalization according to analytical needs.
+- Techniques for **big tables** (100M – 1B rows).
+- Retention & archival strategies.
+- Data pipelines :
+  - Ingestion
+  - ELT / ETL in SQL
+  - Change Data Capture (CDC)
+  - Logical replication for scalability and HA.
+
+---
+
+## Module 4 — Monitoring, Tools & Maintenance
+
+### 🎯 Objectives
+- Monitor, maintain, and diagnose a PostgreSQL cluster in production.
+
+### 📚 Content
+- Monitoring tools :
+  - \`pg_stat_statements\`
+  - \`pg_stat_activity\`
+  - pgBadger
+  - Grafana + Prometheus
+  - Datadog / New Relic
+- Backup & restore :
+  - \`pg_dump\` / \`pg_restore\`
+  - \`pg_basebackup\`
+  - Filesystem snapshots
+- Proactive maintenance :
+  - Index, bloat, and fragmentation monitoring
+  - Autovacuum and parameter adjustments
+
+---
+
+## Module 5 — Practical Workshop & Internal Certification
+
+### 🎯 Objectives
+- Put into practice all the knowledge acquired in the training.
+
+### 🛠 Workshop : Build a Mini Data Warehouse
+- **Modeling** a Star Schema.
+- **Import** a massive dataset.
+- **Partitioning** and smart indexing.
+- **Optimization** of 10 queries with benchmarks.
+- **Complete analysis** via explain.dalibo.com.
+- **Setting up a simple ELT pipeline**.
+- **Monitoring** and evolving statistics.
+- **Documentation** and oral presentation.
+
+### 🏁 Final Result
+At the end of this training, the learner masters :
+- Execution plans and SQL optimization (expert level)
+- PostgreSQL configuration and tuning
+- BI / DWH design
+- Data pipeline creation
+- Monitoring and maintenance tools for production`;
+
+        // Marked configuration
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            highlight: function(code, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    try {
+                        return hljs.highlight(code, { language: lang }).value;
+                    } catch (err) {}
+                }
+                return hljs.highlightAuto(code).value;
+            }
+        });
+
+        // Convert and display content
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+        // Add IDs to headings for navigation
+        document.querySelectorAll('h1, h2, h3').forEach((heading, index) => {
+            if (!heading.id) {
+                heading.id = 'heading-' + index;
+            }
+        });
+    </script>
+</body>
+</html>
+

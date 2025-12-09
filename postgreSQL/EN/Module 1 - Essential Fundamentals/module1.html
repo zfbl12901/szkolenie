@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1 — Optimisation des requêtes</title>
+    <title>Module 1 — Query Optimization</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
@@ -14,14 +14,14 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="../index.html">📘 PostgreSQL Avancé</a>
+                    <a href="../index.html">📘 Advanced PostgreSQL</a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="../index.html">Plan de cours</a></li>
+                    <li><a href="../index.html">Course Plan</a></li>
                     <li><a href="module1.html" class="active">Module 1</a></li>
                     <li class="lang-selector">
-                        <a href="module1.html" class="active">FR</a>
-                        <a href="../../EN/Module 1 - Essential Fundamentals/module1.html">EN</a>
+                        <a href="../../FR/Module 1 - Fondamentaux essentiels/module1.html">FR</a>
+                        <a href="module1.html" class="active">EN</a>
                     </li>
                 </ul>
             </div>
@@ -30,16 +30,16 @@
 
     <main class="content-container">
         <article class="markdown-content" id="content">
-            <div class="loading">Chargement du contenu...</div>
+            <div class="loading">Loading content...</div>
         </article>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2025 Formation PostgreSQL Avancé — Data Analyst → Data Engineer</p>
+        <p>&copy; 2025 Advanced PostgreSQL Training — Data Analyst → Data Engineer</p>
     </footer>
 
     <script>
-        // Configuration de marked
+        // Marked configuration
         marked.setOptions({
             breaks: true,
             gfm: true,
@@ -53,22 +53,22 @@
             }
         });
 
-        // Charger le contenu Markdown depuis le fichier
+        // Load Markdown content from file
         fetch('index.md')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Erreur lors du chargement du fichier Markdown');
+                    throw new Error('Error loading Markdown file');
                 }
                 return response.text();
             })
             .then(markdown => {
-                // Convertir et afficher le contenu
+                // Convert and display content
                 document.getElementById('content').innerHTML = marked.parse(markdown);
                 
-                // Ajouter des IDs aux titres pour la navigation
+                // Add IDs to headings for navigation
                 document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
                     if (!heading.id) {
-                        // Créer un ID basé sur le texte du titre
+                        // Create an ID based on the heading text
                         const id = heading.textContent
                             .toLowerCase()
                             .replace(/[^\w\s-]/g, '')
@@ -79,7 +79,7 @@
                     }
                 });
 
-                // Ajouter des ancres pour les liens internes
+                // Add anchors for internal links
                 document.querySelectorAll('a[href^="#"]').forEach(link => {
                     link.addEventListener('click', function(e) {
                         const targetId = this.getAttribute('href').substring(1);
@@ -92,9 +92,9 @@
                 });
             })
             .catch(error => {
-                console.error('Erreur:', error);
+                console.error('Error:', error);
                 document.getElementById('content').innerHTML = 
-                    '<div class="error"><h2>Erreur de chargement</h2><p>Impossible de charger le contenu. Veuillez vérifier que le fichier index.md est présent dans le même répertoire.</p></div>';
+                    '<div class="error"><h2>Loading Error</h2><p>Unable to load content. Please verify that the index.md file is present in the same directory.</p></div>';
             });
     </script>
 
