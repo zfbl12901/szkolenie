@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1 — Optimisation des requêtes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">📘 PostgreSQL Avancé</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Plan de cours</a></li>
+                    <li><a href="module1.html" class="active">Module 1</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <article class="markdown-content" id="content">
+            <div class="loading">Chargement du contenu...</div>
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Formation PostgreSQL Avancé — Data Analyst → Data Engineer</p>
+    </footer>
+
+    <script>
+        // Configuration de marked
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            highlight: function(code, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    try {
+                        return hljs.highlight(code, { language: lang }).value;
+                    } catch (err) {}
+                }
+                return hljs.highlightAuto(code).value;
+            }
+        });
+
+        // Charger le contenu Markdown depuis le fichier
+        fetch('index.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors du chargement du fichier Markdown');
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                // Convertir et afficher le contenu
+                document.getElementById('content').innerHTML = marked.parse(markdown);
+                
+                // Ajouter des IDs aux titres pour la navigation
+                document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
+                    if (!heading.id) {
+                        // Créer un ID basé sur le texte du titre
+                        const id = heading.textContent
+                            .toLowerCase()
+                            .replace(/[^\w\s-]/g, '')
+                            .replace(/\s+/g, '-')
+                            .replace(/-+/g, '-')
+                            .trim();
+                        heading.id = id || 'heading-' + index;
+                    }
+                });
+
+                // Ajouter des ancres pour les liens internes
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                document.getElementById('content').innerHTML = 
+                    '<div class="error"><h2>Erreur de chargement</h2><p>Impossible de charger le contenu. Veuillez vérifier que le fichier index.md est présent dans le même répertoire.</p></div>';
+            });
+    </script>
+
+    <style>
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .error {
+            padding: 2rem;
+            background-color: #fee;
+            border: 2px solid #fcc;
+            border-radius: 8px;
+            color: #c33;
+        }
+    </style>
+</body>
+</html>
+
