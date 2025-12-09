@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 1 — Optimisation des requêtes</title>
     <link rel="stylesheet" href="../styles.css">
+    <script>
+        // Appliquer le thème immédiatement pour éviter le flash
+        (function() {
+            const savedTheme = localStorage.getItem('postgresql-theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" id="highlight-light">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" id="highlight-dark" disabled>
 </head>
 <body>
     <header class="main-header">
@@ -22,6 +33,12 @@
                     <li class="lang-selector">
                         <a href="module1.html" class="active">FR</a>
                         <a href="../../EN/Module 1 - Essential Fundamentals/module1.html">EN</a>
+                    </li>
+                    <li class="theme-toggle" id="themeToggle" title="Basculer entre mode clair et sombre">
+                        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                        </svg>
+                        <span id="themeText">Clair</span>
                     </li>
                 </ul>
             </div>
@@ -114,6 +131,50 @@
             color: #c33;
         }
     </style>
+
+    <script>
+        // Gestion du mode clair/sombre
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        // Icônes SVG pour soleil et lune
+        const sunIcon = '<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>';
+        const moonIcon = '<path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>';
+        
+        // Charger la préférence sauvegardée
+        const savedTheme = localStorage.getItem('postgresql-theme') || 'light';
+        
+        function applyTheme(theme) {
+            const highlightLight = document.getElementById('highlight-light');
+            const highlightDark = document.getElementById('highlight-dark');
+            
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.innerHTML = moonIcon;
+                themeText.textContent = 'Sombre';
+                if (highlightLight) highlightLight.disabled = true;
+                if (highlightDark) highlightDark.disabled = false;
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeIcon.innerHTML = sunIcon;
+                themeText.textContent = 'Clair';
+                if (highlightLight) highlightLight.disabled = false;
+                if (highlightDark) highlightDark.disabled = true;
+            }
+            localStorage.setItem('postgresql-theme', theme);
+        }
+        
+        // Appliquer le thème au chargement
+        applyTheme(savedTheme);
+        
+        // Toggle au clic
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+    </script>
 </body>
 </html>
 
